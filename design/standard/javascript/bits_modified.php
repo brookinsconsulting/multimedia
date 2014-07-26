@@ -10,6 +10,8 @@ $my_js = file_get_contents("http://cdn.thinkcreative.com/players/$keys.js");
 
 $my_js = preg_replace("/document\.write.*;/", "", $my_js);
 
+$my_js = preg_replace("/http:/", "", $my_js);
+
 $addme = false;
 $caption = '';
 $audiodescription = '';

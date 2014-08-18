@@ -48,7 +48,9 @@ class eZBotrVideo
 					$se[]="<input type='radio' name='vidselect' value='$tmp'/>";
 				}
 
-				$pr = "<img src='http://cdn.thinkcreative.com/thumbs/" . $id . "-100.jpg'/>";
+                                $thumb = 'http://cdn.thinkcreative.com/thumbs/' . $id . '-100.jpg';
+                                $pr = "<img src='" . $thumb . "' />";
+
 				$pa = implode($pa, '<br/>');
 				$si = implode($si, '<br/>');
 				$du = implode($du, '<br/>');
@@ -70,8 +72,8 @@ class eZBotrVideo
 
 				$downloadme  =  $upath.'?exp='.$expires.'&sig='.$signature;
 
-				$this->Attributes = array('download' => $downloadme, 'html' => $html, 'response' => array($response1, $response2), 'args' => $botr_api->getargs());
-		
+
+                                $this->Attributes = array('download' => $downloadme, 'thumb' => $thumb, 'html' => $html, 'response' => array($response1, $response2), 'args' => $botr_api->getargs());
 			}
 		
 		}

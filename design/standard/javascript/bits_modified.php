@@ -10,7 +10,10 @@ $my_js = file_get_contents("http://cdn.thinkcreative.com/players/$keys.js");
 
 $my_js = preg_replace("/document\.write.*;/", "", $my_js);
 
-$my_js = preg_replace("/http:/", "", $my_js);
+if( $_SERVER['SERVER_PORT'] == 443 )
+{
+        $my_js = preg_replace("/http:/", "/https:/", $my_js);
+}
 
 $addme = false;
 $caption = '';
